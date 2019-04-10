@@ -13,8 +13,8 @@ attr_accessor :till, :drinks
     @drinks.concat(drink)
   end
 
-  def sell_a_drink(drink, age)
-    if age >= 18
+  def sell_a_drink(drink, age, drunk)
+    if age >= 18 && drunk <= 50
       @till += drink.price
     else
       return "barred"

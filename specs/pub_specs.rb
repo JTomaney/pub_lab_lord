@@ -2,7 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../drink.rb")
 require_relative("../pub.rb")
-require_relative("../customer.rb")
+
 
 class PubTest < MiniTest:: Test
 
@@ -22,13 +22,18 @@ class PubTest < MiniTest:: Test
   end
 
   def test_sells_a_drink__age_over_18
-    @pub.sell_a_drink(@drink, 19)
+    @pub.sell_a_drink(@drink, 19, 0)
     assert_equal(2, @pub.till)
   end
 
   def test_sells_a_drink__age_under_18
-    assert_equal("barred", @pub.sell_a_drink(@drink, 17))
+    assert_equal("barred", @pub.sell_a_drink(@drink, 17, 0))
+  end
+
+  def test_sells_a_drink_customer_drunk
+    assert_equal("barred", @pub.sell_a_drink(@drink, 20, 65))
 
   end
+
 
 end
