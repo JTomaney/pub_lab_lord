@@ -1,12 +1,13 @@
 class Pub
 
 attr_reader :name
-attr_accessor :till, :drinks
+attr_accessor :till, :drinks, :food
 
-  def initialize(name, till = 0, drinks = [])
+  def initialize(name, till = 0, drinks = [], food = [])
     @name = name
     @till = till
     @drinks = drinks
+    @food = food
   end
 
   def add_drinks(drink)
@@ -19,6 +20,11 @@ attr_accessor :till, :drinks
     else
       return "barred"
     end
+  end
+
+  def sell_food(food)
+    @till += food.price
+
   end
 
 end

@@ -2,6 +2,7 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../drink.rb")
 require_relative("../pub.rb")
+require_relative("../food.rb")
 
 
 class PubTest < MiniTest:: Test
@@ -10,6 +11,7 @@ class PubTest < MiniTest:: Test
     @drink2 = Drink.new("Wine", 3, 12)
     @drink = Drink.new("Beer", 2, 5)
     @pub = Pub.new("The Winchester", 0 , [@drink])
+    @food = Food.new("Pie", 2, 5)
   end
 
   def test_make_a_pub
@@ -32,8 +34,11 @@ class PubTest < MiniTest:: Test
 
   def test_sells_a_drink_customer_drunk
     assert_equal("barred", @pub.sell_a_drink(@drink, 20, 65))
-
   end
 
+  def test_sells_a_pie
+    @pub.sell_food(@food)
+    assert_equal(2, @pub.till)
+  end
 
 end

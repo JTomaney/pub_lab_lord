@@ -12,8 +12,14 @@ class Customer
 
   def buy_drink(pub, drink)
     @wallet -= drink.price
+    pub.sell_a_drink(drink, @age, @drunk)
     @drunk += drink.level
-    pub.sell_a_drink(drink, @age)
   end
 
+  def buy_food(pub, food)
+    @wallet -= food.price
+    @drunk -= food.level
+  end
+
+  
 end
