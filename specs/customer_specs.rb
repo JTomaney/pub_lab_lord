@@ -9,7 +9,7 @@ class CustomerTest < MiniTest:: Test
   def setup
     @drink = Drink.new("Beer", 2)
     @pub = Pub.new("The Winchester", 0, [@drink])
-    @customer = Customer.new("Alf", 10)
+    @customer = Customer.new("Alf", 10, 19)
   end
 
   def test_is_a_customer
