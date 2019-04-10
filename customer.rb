@@ -8,8 +8,8 @@ class Customer
     @wallet = wallet
   end
 
-  def method_name
-
+  def buy_drink(pub, drink)
+    @wallet -= drinks.price
   end
 
 end

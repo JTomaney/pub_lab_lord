@@ -13,4 +13,8 @@ attr_accessor :till, :drinks
     @drinks.concat(drink)
   end
 
+  def sell_a_drink(drink)
+    @till += drink.price
+  end
+
 end
